@@ -418,9 +418,29 @@ namespace Stratis.Bitcoin.Features.Wallet
                 }
             }
 
+            // Get the ColdStaking script template if available.
+            Dictionary<string, ScriptTemplate> templates = this.walletManager.GetValidStakingTemplates();
+            ScriptTemplate coldStakingTemplate = null;
+
+            if (templates.ContainsKey("ColdStaking"))
+            {
+                coldStakingTemplate = templates["ColdStaking"];
+
+            }
+
             // Receive transactions details.
             foreach (TransactionData trxInWallet in receivedTransactions)
             {
+                if (coldStakingTemplate != null)
+                {
+                    var isColdStakingTrx = coldStakingTemplate.CheckScriptPubKey(trxInWallet.ScriptPubKey);
+
+                    if (isColdStakingTrx)
+                    {
+                        continue;
+                    }
+                }
+
                 GetTransactionDetailsCategoryModel category;
                 if (isGenerated)
                 {
