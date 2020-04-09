@@ -16,9 +16,7 @@ Solaris Bitcoin is based on the [NBitcoin](https://github.com/MetacoSA/NBitcoin)
 
 For Proof of Stake support on the Solaris token the node is using [NStratis](https://github.com/stratisproject/NStratis) which is a POS implementation of NBitcoin.  
 
-[.NET Core](https://dotnet.github.io/) is an open source cross platform framework and enables the development of applications and services on Windows, macOS and Linux.  
-
-Join our community on [discord](https://discord.gg/9tDyfZs).  
+[.NET Core](https://dotnet.github.io/) is an open source cross platform framework and enables the development of applications and services on Windows, macOS and Linux.   
 
 The design
 ----------
@@ -64,8 +62,8 @@ The master branch is actively developed and regularly committed to, and it can b
 To compile a stable (production) release use any of the release tags form version 3.0.x.x and upwards.  
 
 ```
-git clone https://github.com/stratisproject/StratisBitcoinFullNode.git  
-cd StratisBitcoinFullNode\src
+git clone https://github.com/SolarisPlatform/SolarisBitcoinFullNode.git  
+cd SolarisBitcoinFullNode\src
 
 dotnet build
 
@@ -79,7 +77,7 @@ dotnet run
 
 To run on the Stratis network:
 ```
-cd Stratis.StratisD
+cd Stratis.SolarisD
 dotnet run
 ```  
 
@@ -97,7 +95,6 @@ Check this guides for more info:
 * [Wiki Page](https://stratisplatform.atlassian.net/wiki/spaces/WIKI/overview)
 
 There is a lot to do and we welcome contributers developers and testers who want to get some Blockchain experience.
-You can find tasks at the issues/projects or visit the dev_general channel on [discord](https://discord.gg/9tDyfZs).
 
 Testing
 -------
