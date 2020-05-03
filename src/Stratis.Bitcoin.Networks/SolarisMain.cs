@@ -134,7 +134,8 @@ namespace Stratis.Bitcoin.Networks
             {
                 { 0, new CheckpointInfo(new uint256("0xa3a98f72634c7d098164926b83ff136b66d1cafbb9aeb5a3b8d18da02937f79f"), new uint256("0x0000000000000000000000000000000000000000000000000000000000000000")) },
                 { 1409, new CheckpointInfo(new uint256("0xd2f9c43c57fbb066daf940f80e9ce1a63d5d444e9e337b1491f79c36288ab0da"), new uint256("0x602e263081a44650085947dbe99fd0c51041389d79fb9c3f379f8a403a74d977")) },
-                { 2900, new CheckpointInfo(new uint256("0x21e7bce830a7646e2ea049b7f37a42f032e09e8b2526cbf8d69fb094014826eb"), new uint256("0x83590685c1d2dfcb0ca9220af9447677a375cbfaaaf4305be309bb7141e41a47")) }
+                { 2900, new CheckpointInfo(new uint256("0x21e7bce830a7646e2ea049b7f37a42f032e09e8b2526cbf8d69fb094014826eb"), new uint256("0x83590685c1d2dfcb0ca9220af9447677a375cbfaaaf4305be309bb7141e41a47")) },
+                { 191746, new CheckpointInfo(new uint256("0xf0120c783073c531cccb269d01029aaddd995efa4d8bad2546ec7b7c48f9415e"), new uint256("0xb6fe3b405b5016c94c29a98c2a90c83f70769c9c1718b157d44c6910099637a9")) }
             };
 
             this.Bech32Encoders = new Bech32Encoder[2];
