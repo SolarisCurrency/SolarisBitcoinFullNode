@@ -120,7 +120,7 @@ namespace Stratis.Bitcoin.Features.Wallet
         /// Gets all the transactions in the wallet.
         /// </summary>
         /// <returns>A list of all the transactions in the wallet.</returns>
-        public IEnumerable<TransactionData> GetAllTransactions()
+        public IEnumerable<TransactionData> GetAllTransactions(bool includeInternal = true)
         {
             List<HdAccount> accounts = this.GetAccounts().ToList();
 
@@ -129,10 +129,11 @@ namespace Stratis.Bitcoin.Features.Wallet
                 yield return txData;
             }
 
-            foreach (TransactionData txData in accounts.SelectMany(x => x.InternalAddresses).SelectMany(x => x.Transactions))
-            {
-                yield return txData;
-            }
+            if (includeInternal)
+                foreach (TransactionData txData in accounts.SelectMany(x => x.InternalAddresses).SelectMany(x => x.Transactions))
+                {
+                    yield return txData;
+                }
         }
 
         /// <summary>

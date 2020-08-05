@@ -246,22 +246,24 @@ namespace Stratis.Bitcoin.Features.Wallet
             WalletAccountReference accountReference = this.GetWalletAccountReference();
             Wallet wallet = this.walletManager.GetWallet(accountReference.WalletName);
 
-            IEnumerable<TransactionData> transactions = wallet.GetAllTransactions();
+            IEnumerable<TransactionData> transactions = wallet.GetAllTransactions(false);
 
             var model = new ListSinceBlockModel();
 
             foreach (TransactionData transactionData in transactions)
-            {
-                GetTransactionModel transaction = await this.GetTransactionAsync(transactionData.Id.ToString());
-
+            {                
                 int blockHeight = transactionData.BlockHeight ?? 0;
 
                 if (headerBlock != null && blockHeight < headerBlock.Height)
                     continue;
 
-                if (transaction.Confirmations < targetConfirmations)
+                if (!transactionData.IsConfirmed())
                     continue;
 
+                GetTransactionModel transaction = await this.GetTransactionAsync(transactionData.Id.ToString());
+
+                if (transaction.Confirmations < targetConfirmations)
+                    continue;
 
                 ListSinceBlockTransactionCategoryModel category = GetListSinceBlockTransactionCategoryModel(transaction);
 
