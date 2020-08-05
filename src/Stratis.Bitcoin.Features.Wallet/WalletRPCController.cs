@@ -148,6 +148,21 @@ namespace Stratis.Bitcoin.Features.Wallet
             return hash;
         }
 
+        [ActionName("verifymessage")]
+        [ActionDescription("Verify a signed message.")]
+        [HttpPost]
+        public bool VerifyMessage(string address, string signature, string message)
+        {
+            try
+            {
+                return this.walletManager.VerifySignedMessage(address, message, signature);
+            }
+            catch (Exception exception)
+            {
+                throw new RPCServerException(RPCErrorCode.RPC_INVALID_REQUEST, exception.Message);
+            }
+        }
+
         /// <summary>
         /// RPC method that gets a new address for receiving payments.
         /// Uses the first wallet and account.
@@ -251,7 +266,7 @@ namespace Stratis.Bitcoin.Features.Wallet
             var model = new ListSinceBlockModel();
 
             foreach (TransactionData transactionData in transactions)
-            {                
+            {
                 int blockHeight = transactionData.BlockHeight ?? 0;
 
                 if (headerBlock != null && blockHeight < headerBlock.Height)
