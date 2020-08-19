@@ -153,13 +153,11 @@ namespace Stratis.Bitcoin.Networks
 
             this.SeedNodes = new List<NetworkAddress>
             {
-                new NetworkAddress(IPAddress.Parse("176.223.131.60"), 60000), //Official node 1
-                new NetworkAddress(IPAddress.Parse("85.214.223.236"), 60000), //Official node 2
-                new NetworkAddress(IPAddress.Parse("85.214.241.80"), 60000), //Official node 3
-                new NetworkAddress(IPAddress.Parse("85.214.130.77"), 60000), //Official node 4
-                new NetworkAddress(IPAddress.Parse("81.169.238.113"), 60000), //Official node 5
-                new NetworkAddress(IPAddress.Parse("81.169.234.147"), 60000), //Official node 6
-                new NetworkAddress(IPAddress.Parse("80.211.88.141"), 60000) //Trustaking node
+                new NetworkAddress(IPAddress.Parse("3.125.89.141"), 60000), //Official node 1 (Frankfurt)
+                new NetworkAddress(IPAddress.Parse("18.139.112.210"), 60000), //Official node 2 (Singapore)
+                new NetworkAddress(IPAddress.Parse("18.211.206.174"), 60000), //Official node 3 (USA East)          
+                new NetworkAddress(IPAddress.Parse("54.219.124.108"), 60000), //Official node 4 (USA West)
+                new NetworkAddress(IPAddress.Parse("136.144.247.170"), 60000) //Official node 5 (The Netherlands)
             };
 
             this.StandardScriptsRegistry = new StratisStandardScriptsRegistry();
